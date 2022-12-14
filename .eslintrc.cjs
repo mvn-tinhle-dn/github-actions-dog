@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     "no-console": ["error", { allow: ["warn", "error"] }],
     "vue/multi-word-component-names": "off",
+    "vue/no-reserved-component-names": "off",
   },
 };
