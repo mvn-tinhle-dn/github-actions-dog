@@ -4,7 +4,7 @@ import TableUsers from './TableUsers.vue';
 export default {
   name: "Todo",
   components: { TableUsers },
-  computed() {
+  created() {
     localStorage.setItem("arrayUser", JSON.stringify([{ id: 1, userName: "Mem 1" }]))
   },
 
