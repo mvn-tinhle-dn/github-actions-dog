@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div class="linked">
-      <a href="#/">Todo</a> |
+      <a href="#/">Home</a> |
+      <a href="#/todo">Todo</a> |
       <a href="#/non-existent-path">Broken Link</a>
     </div>
     <component :is="currentView" />
@@ -11,15 +12,17 @@
 <script >
 import Todo from './components/Todo.vue'
 import NotFound from './pages/NotFound.vue'
+import Home from './pages/Home.vue'
 
 
 const routes = {
-  '/': Todo,
+  '/': Home,
+  '/todo': Todo,
 }
 
 export default {
   name: "App",
-  components: { Todo, NotFound },
+  components: { Todo, NotFound, Home },
   data() {
     return {
       currentPath: window.location.hash

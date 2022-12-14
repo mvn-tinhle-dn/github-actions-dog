@@ -7,12 +7,15 @@ export default {
   created() {
     localStorage.setItem("arrayUser", JSON.stringify([{ id: 1, userName: "Mem 1" }]))
   },
+  mounted() {
+    this.dataUser = JSON.parse(localStorage.getItem("arrayUser"))
+  },
 
   data() {
     return {
       value: "",
       isEdit: false,
-      dataUser: JSON.parse(localStorage.getItem("arrayUser")),
+      dataUser: [],
       valueUpdate: { id: "", userName: "" },
     }
   },
