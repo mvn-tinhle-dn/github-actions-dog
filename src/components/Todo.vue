@@ -13,6 +13,7 @@ export default {
     console.log("phen");
     console.log("cong");
     console.log("cong");
+    console.log("cong2");
   },
 
   data() {
