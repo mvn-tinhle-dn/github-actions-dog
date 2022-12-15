@@ -9,6 +9,9 @@ export default {
   },
   mounted() {
     this.dataUser = JSON.parse(localStorage.getItem("arrayUser"))
+    console.log("Test");
+    console.log("Test");
+    console.log("Test");
   },
 
   data() {
