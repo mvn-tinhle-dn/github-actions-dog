@@ -1,34 +1,53 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: 
-  pull_request:
-    branches: 
-      - master
+# name: GitHub Actions Demo
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# on: 
+#   pull_request:
+#     branches: 
+#       - master
+# jobs:
+#   github-actions:
+#     name: github-actions
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: setup node
+#         uses: actions/checkout@v3
+#       - uses: actions/setup-node@v3
+#         with:
+#             node-version: 16
+#       - run: npm ci
+#       - name: install node_module
+#         run: npm i
+#       - name: install eslint
+#         run: npm install eslint -D
+#       - name: review dog
+#         uses: actions/checkout@v1
+#       - uses: reviewdog/action-eslint@v1
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           reporter: github-pr-review
+#           eslint_flags: 'src/'
+#       - name: Check Eslint
+#         run: npm run lint
+#       - name:  build
+#         run: npm run build
+#       - run: npm install -g surge
+#       - run: surge ./dist ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+
+name: reviewdog
+
+on: pull_request
+
 jobs:
-  github-actions:
-    name: github-actions
+  eslint:
+    name: runner / eslint
     runs-on: ubuntu-latest
     steps:
-      - name: setup node
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-            node-version: 16
-      - run: npm ci
-      - name: install node_module
-        run: npm i
-      - name: install eslint
-        run: npm install eslint -D
-      - name: review dog
-        uses: actions/checkout@v1
+          node-version: "14"
+      - run: yarn install
       - uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          eslint_flags: 'src/'
-      - name: Check Eslint
-        run: npm run lint
-      - name:  build
-        run: npm run build
-      - run: npm install -g surge
-      - run: surge ./dist ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+          reporter: github-pr-review # Change reporter.
