@@ -1,8 +1,9 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
-  push:
   pull_request:
+    branches: 
+      - master
 jobs:
   github-actions:
     name: github-actions
@@ -17,7 +18,7 @@ jobs:
       - name: install node_module
         run: npm i
       - name: review dog
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
