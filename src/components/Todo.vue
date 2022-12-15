@@ -12,6 +12,7 @@ export default {
     console.log("Minh");
     console.log("phen");
     console.log("cong");
+    console.log("cong");
   },
 
   data() {
