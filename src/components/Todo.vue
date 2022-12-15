@@ -11,6 +11,7 @@ export default {
     this.dataUser = JSON.parse(localStorage.getItem("arrayUser"))
     console.log("Minh");
     console.log("phen");
+    console.log("cong");
   },
 
   data() {
