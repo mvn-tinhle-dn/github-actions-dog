@@ -25,6 +25,8 @@ jobs:
         run: npm i
       - name: reviewDog
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
