@@ -10,6 +10,7 @@ export default {
   mounted() {
     this.dataUser = JSON.parse(localStorage.getItem("arrayUser"))
     console.log("test no-console github-actions");
+    console.log("test no-console github-actions");
   },
 
   data() {
