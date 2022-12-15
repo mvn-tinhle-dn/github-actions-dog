@@ -31,7 +31,8 @@ export default {
         this.dataUser.forEach((userItem, idex) => {
           if (userItem.id === this.valueUpdate.id) {
             this.isEdit = false;
-            this.dataUser[idex].userName = this.value;
+            if (this.value.trim() !== "")
+              this.dataUser[idex].userName = this.value;
             localStorage.setItem("arrayUser", JSON.stringify(this.dataUser));
             this.value = "";
           }
