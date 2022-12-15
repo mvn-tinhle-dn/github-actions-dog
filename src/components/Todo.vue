@@ -35,7 +35,8 @@ export default {
         this.dataUser.forEach((userItem, idex) => {
           if (userItem.id === this.valueUpdate.id) {
             this.isEdit = false;
-            this.dataUser[idex].userName = this.value;
+            if (this.value.trim() !== "")
+              this.dataUser[idex].userName = this.value;
             localStorage.setItem("arrayUser", JSON.stringify(this.dataUser));
             this.value = "";
           }
@@ -93,12 +94,16 @@ button:hover {
   color: #fff;
   cursor: pointer;
 }
+
+.hide {
+  display: none !important;
+}
 </style>
 
 <template>
   <div class="div-1">
     <input type="text" v-model="value">
-    <button @click="handleADD">{{ isEdit ? "Edit User" : "Add User" }}</button>
+    <button @click="handleADD" :disabled="this.value.trim() === ''">{{ isEdit ? "Edit User" : "Add User" }} </button>
   </div>
   <TableUsers :dataUser="dataUser" :deleteUser="deleteUser" :handleEdit="handleEdit" :setIsEdit="setIsEdit" />
 </template>
