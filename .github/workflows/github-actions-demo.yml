@@ -17,6 +17,8 @@ jobs:
       - run: npm ci
       - name: install node_module
         run: npm i
+      - name: install eslint
+        run: npm install eslint -D
       - name: review dog
         uses: actions/checkout@v1
       - uses: reviewdog/action-eslint@v1
